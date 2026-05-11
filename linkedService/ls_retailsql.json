@@ -1,0 +1,18 @@
+{
+	"name": "ls_retailsql",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "this is basically link of SQL",
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sr-sql-reatailcrop.database.windows.net",
+			"database": "db-retailcrop",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "sadmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDRGRjMxQ0QyLTc0MkMtNDNDMS05RDMxLTJCMzExMUMyNDJBMF84NTA1Y2FjNS1hYTQ0LTQ5ZjEtOGIzOS0wMzczNDMyYmVjNTciDQp9"
+		}
+	}
+}
