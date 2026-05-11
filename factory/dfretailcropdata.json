@@ -1,0 +1,15 @@
+{
+	"name": "dfretailcropdata",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8612dfe5-6a73-498b-9846-6d72ecb6c976",
+		"tenantId": "c72fa9b0-8d07-4768-b871-828eaf6094a8"
+	}
+}
