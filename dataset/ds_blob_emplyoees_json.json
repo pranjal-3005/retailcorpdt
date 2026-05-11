@@ -1,0 +1,72 @@
+{
+	"name": "ds_blob_emplyoees_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "employees.json",
+				"folderPath": "employees",
+				"container": "cnraw-data"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"employee_id": {
+					"type": "string"
+				},
+				"first_name": {
+					"type": "string"
+				},
+				"last_name": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"department": {
+					"type": "string"
+				},
+				"designation": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"date_of_joining": {
+					"type": "string"
+				},
+				"date_of_birth": {
+					"type": "string"
+				},
+				"education": {
+					"type": "string"
+				},
+				"base_salary": {
+					"type": "number"
+				},
+				"performance_rating": {
+					"type": "number"
+				},
+				"manager_id": {
+					"type": "null"
+				},
+				"is_active": {
+					"type": "boolean"
+				},
+				"annual_leaves_remaining": {
+					"type": "integer"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+{
+	"name": "ds_blob_orderitems_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "order_items.csv",
+				"folderPath": "orders",
+				"container": "cnraw-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "order_id",
+				"type": "String"
+			},
+			{
+				"name": "product_id",
+				"type": "String"
+			},
+			{
+				"name": "product_name",
+				"type": "String"
+			},
+			{
+				"name": "quantity",
+				"type": "String"
+			},
+			{
+				"name": "unit_price",
+				"type": "String"
+			},
+			{
+				"name": "discount_pct",
+				"type": "String"
+			},
+			{
+				"name": "line_total",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -1,0 +1,73 @@
+{
+	"name": "ds_blob_product_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "products.csv",
+				"folderPath": "product",
+				"container": "cnraw-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "product_id",
+				"type": "String"
+			},
+			{
+				"name": "product_name",
+				"type": "String"
+			},
+			{
+				"name": "category",
+				"type": "String"
+			},
+			{
+				"name": "sub_category",
+				"type": "String"
+			},
+			{
+				"name": "supplier_id",
+				"type": "String"
+			},
+			{
+				"name": "unit_price",
+				"type": "String"
+			},
+			{
+				"name": "cost_price",
+				"type": "String"
+			},
+			{
+				"name": "stock_quantity",
+				"type": "String"
+			},
+			{
+				"name": "reorder_level",
+				"type": "String"
+			},
+			{
+				"name": "weight_kg",
+				"type": "String"
+			},
+			{
+				"name": "is_active",
+				"type": "String"
+			},
+			{
+				"name": "launch_date",
+				"type": "String"
+			}
+		]
+	}
+}

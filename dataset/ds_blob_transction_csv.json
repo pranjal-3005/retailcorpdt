@@ -1,0 +1,84 @@
+{
+	"name": "ds_blob_transction_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "transaction",
+				"container": "cnraw-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "transaction_id",
+				"type": "String"
+			},
+			{
+				"name": "store_id",
+				"type": "String"
+			},
+			{
+				"name": "store_name",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "transaction_date",
+				"type": "String"
+			},
+			{
+				"name": "transaction_time",
+				"type": "String"
+			},
+			{
+				"name": "cashier_employee_id",
+				"type": "String"
+			},
+			{
+				"name": "customer_id",
+				"type": "String"
+			},
+			{
+				"name": "num_products",
+				"type": "String"
+			},
+			{
+				"name": "gross_amount",
+				"type": "String"
+			},
+			{
+				"name": "discount_amount",
+				"type": "String"
+			},
+			{
+				"name": "net_amount",
+				"type": "String"
+			},
+			{
+				"name": "payment_mode",
+				"type": "String"
+			},
+			{
+				"name": "invoice_number",
+				"type": "String"
+			},
+			{
+				"name": "is_returned",
+				"type": "String"
+			}
+		]
+	}
+}

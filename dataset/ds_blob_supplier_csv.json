@@ -1,0 +1,77 @@
+{
+	"name": "ds_blob_supplier_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "supplier_master.csv",
+				"folderPath": "suppliers",
+				"container": "cnraw-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "supplier_id",
+				"type": "String"
+			},
+			{
+				"name": "supplier_name",
+				"type": "String"
+			},
+			{
+				"name": "contact_person",
+				"type": "String"
+			},
+			{
+				"name": "email",
+				"type": "String"
+			},
+			{
+				"name": "phone",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "payment_terms_days",
+				"type": "String"
+			},
+			{
+				"name": "rating",
+				"type": "String"
+			},
+			{
+				"name": "contract_start_date",
+				"type": "String"
+			},
+			{
+				"name": "contract_end_date",
+				"type": "String"
+			},
+			{
+				"name": "is_active",
+				"type": "String"
+			},
+			{
+				"name": "gst_number",
+				"type": "String"
+			}
+		]
+	}
+}

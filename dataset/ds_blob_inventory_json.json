@@ -1,0 +1,66 @@
+{
+	"name": "ds_blob_inventory_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "inventory_snapshots.json",
+				"folderPath": "inventory",
+				"container": "cnraw-data"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"snapshot_id": {
+					"type": "string"
+				},
+				"snapshot_date": {
+					"type": "string"
+				},
+				"warehouse_id": {
+					"type": "string"
+				},
+				"product_id": {
+					"type": "string"
+				},
+				"product_name": {
+					"type": "string"
+				},
+				"category": {
+					"type": "string"
+				},
+				"qty_on_hand": {
+					"type": "integer"
+				},
+				"qty_reserved": {
+					"type": "integer"
+				},
+				"qty_in_transit": {
+					"type": "integer"
+				},
+				"unit_cost": {
+					"type": "number"
+				},
+				"total_inventory_value": {
+					"type": "number"
+				},
+				"days_of_supply": {
+					"type": "number"
+				},
+				"last_received_date": {
+					"type": "string"
+				},
+				"reorder_triggered": {
+					"type": "boolean"
+				}
+			}
+		}
+	}
+}

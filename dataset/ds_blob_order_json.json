@@ -1,0 +1,101 @@
+{
+	"name": "ds_blob_order_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "orders.json",
+				"folderPath": "orders",
+				"container": "cnraw-data"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"order_id": {
+					"type": "string"
+				},
+				"customer_id": {
+					"type": "string"
+				},
+				"order_date": {
+					"type": "string"
+				},
+				"order_time": {
+					"type": "string"
+				},
+				"channel": {
+					"type": "string"
+				},
+				"status": {
+					"type": "string"
+				},
+				"payment_mode": {
+					"type": "string"
+				},
+				"subtotal_amount": {
+					"type": "number"
+				},
+				"tax_amount": {
+					"type": "number"
+				},
+				"shipping_charge": {
+					"type": "integer"
+				},
+				"total_amount": {
+					"type": "number"
+				},
+				"delivery_city": {
+					"type": "string"
+				},
+				"warehouse_id": {
+					"type": "string"
+				},
+				"is_gift": {
+					"type": "boolean"
+				},
+				"expected_delivery_date": {
+					"type": "string"
+				},
+				"actual_delivery_date": {
+					"type": "string"
+				},
+				"items": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"order_id": {
+								"type": "string"
+							},
+							"product_id": {
+								"type": "string"
+							},
+							"product_name": {
+								"type": "string"
+							},
+							"quantity": {
+								"type": "integer"
+							},
+							"unit_price": {
+								"type": "number"
+							},
+							"discount_pct": {
+								"type": "number"
+							},
+							"line_total": {
+								"type": "number"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
