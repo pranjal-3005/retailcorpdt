@@ -1,0 +1,90 @@
+{
+	"name": "ds_sql_fact_order",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "order_id",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_id",
+				"type": "varchar"
+			},
+			{
+				"name": "order_date",
+				"type": "date"
+			},
+			{
+				"name": "order_time",
+				"type": "time",
+				"scale": 7
+			},
+			{
+				"name": "channel",
+				"type": "varchar"
+			},
+			{
+				"name": "status",
+				"type": "varchar"
+			},
+			{
+				"name": "payment_mode",
+				"type": "varchar"
+			},
+			{
+				"name": "subtotal_amount",
+				"type": "decimal",
+				"precision": 14,
+				"scale": 2
+			},
+			{
+				"name": "tax_amount",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "shipping_charge",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "total_amount",
+				"type": "decimal",
+				"precision": 14,
+				"scale": 2
+			},
+			{
+				"name": "delivery_city",
+				"type": "varchar"
+			},
+			{
+				"name": "warehouse_id",
+				"type": "varchar"
+			},
+			{
+				"name": "is_gift",
+				"type": "bit"
+			},
+			{
+				"name": "expected_delivery_date",
+				"type": "date"
+			},
+			{
+				"name": "actual_delivery_date",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "fact_orders"
+		}
+	}
+}

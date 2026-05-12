@@ -1,0 +1,95 @@
+{
+	"name": "ds_sql_fact_transction",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "transaction_id",
+				"type": "varchar"
+			},
+			{
+				"name": "store_id",
+				"type": "varchar"
+			},
+			{
+				"name": "store_name",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "transaction_date",
+				"type": "date"
+			},
+			{
+				"name": "transaction_time",
+				"type": "time",
+				"scale": 7
+			},
+			{
+				"name": "transaction_year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "transaction_month",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "cashier_employee_id",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_id",
+				"type": "varchar"
+			},
+			{
+				"name": "num_products",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "gross_amount",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "discount_amount",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "net_amount",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "payment_mode",
+				"type": "varchar"
+			},
+			{
+				"name": "invoice_number",
+				"type": "varchar"
+			},
+			{
+				"name": "is_returned",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "fact_store_transactions"
+		}
+	}
+}

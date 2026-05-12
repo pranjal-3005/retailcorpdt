@@ -1,0 +1,60 @@
+{
+	"name": "ds_sql_agg_productperformance",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "product_id",
+				"type": "varchar"
+			},
+			{
+				"name": "product_name",
+				"type": "varchar"
+			},
+			{
+				"name": "category",
+				"type": "varchar"
+			},
+			{
+				"name": "sub_category",
+				"type": "varchar"
+			},
+			{
+				"name": "total_units_sold",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "total_revenue",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "total_returns",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "return_rate_pct",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 2
+			},
+			{
+				"name": "current_stock_qty",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "agg_product_performance"
+		}
+	}
+}

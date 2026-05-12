@@ -1,0 +1,21 @@
+{
+	"name": "ds_sql_dim_warehouse",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "warehouse_id",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dim_warehouses"
+		}
+	}
+}

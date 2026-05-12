@@ -1,0 +1,76 @@
+{
+	"name": "ds_sql_dim_suppliers",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "supplier_id",
+				"type": "varchar"
+			},
+			{
+				"name": "supplier_name",
+				"type": "varchar"
+			},
+			{
+				"name": "contact_person",
+				"type": "varchar"
+			},
+			{
+				"name": "email",
+				"type": "varchar"
+			},
+			{
+				"name": "phone",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "country",
+				"type": "varchar"
+			},
+			{
+				"name": "payment_terms_days",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "rating",
+				"type": "decimal",
+				"precision": 3,
+				"scale": 1
+			},
+			{
+				"name": "contract_start_date",
+				"type": "date"
+			},
+			{
+				"name": "contract_end_date",
+				"type": "date"
+			},
+			{
+				"name": "is_contract_active",
+				"type": "bit"
+			},
+			{
+				"name": "is_active",
+				"type": "bit"
+			},
+			{
+				"name": "gst_number",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dim_suppliers"
+		}
+	}
+}

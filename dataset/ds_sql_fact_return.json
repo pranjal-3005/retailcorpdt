@@ -1,0 +1,69 @@
+{
+	"name": "ds_sql_fact_return",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "return_id",
+				"type": "varchar"
+			},
+			{
+				"name": "order_id",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_id",
+				"type": "varchar"
+			},
+			{
+				"name": "return_date",
+				"type": "date"
+			},
+			{
+				"name": "reason",
+				"type": "varchar"
+			},
+			{
+				"name": "return_status",
+				"type": "varchar"
+			},
+			{
+				"name": "refund_amount",
+				"type": "decimal",
+				"precision": 14,
+				"scale": 2
+			},
+			{
+				"name": "refund_mode",
+				"type": "varchar"
+			},
+			{
+				"name": "refund_date",
+				"type": "date"
+			},
+			{
+				"name": "restocking_fee",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "condition_on_return",
+				"type": "varchar"
+			},
+			{
+				"name": "rejected_flag",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "fact_returns"
+		}
+	}
+}

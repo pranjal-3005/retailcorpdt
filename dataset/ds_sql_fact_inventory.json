@@ -1,0 +1,82 @@
+{
+	"name": "ds_sql_fact_inventory",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_retailsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "snapshot_id",
+				"type": "varchar"
+			},
+			{
+				"name": "snapshot_date",
+				"type": "date"
+			},
+			{
+				"name": "warehouse_id",
+				"type": "varchar"
+			},
+			{
+				"name": "product_id",
+				"type": "varchar"
+			},
+			{
+				"name": "product_name",
+				"type": "varchar"
+			},
+			{
+				"name": "category",
+				"type": "varchar"
+			},
+			{
+				"name": "qty_on_hand",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "qty_reserved",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "qty_in_transit",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "unit_cost",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "total_inventory_value",
+				"type": "decimal",
+				"precision": 16,
+				"scale": 2
+			},
+			{
+				"name": "days_of_supply",
+				"type": "decimal",
+				"precision": 8,
+				"scale": 1
+			},
+			{
+				"name": "last_received_date",
+				"type": "date"
+			},
+			{
+				"name": "reorder_flag",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "fact_inventory_snapshots"
+		}
+	}
+}
