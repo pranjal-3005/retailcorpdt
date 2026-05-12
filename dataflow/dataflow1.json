@@ -44,7 +44,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> customers1",
 				"customers1 filter(is_active == 1) ~> filter1",
-				"filter1 derive() ~> derivedColumn1"
+				"filter1 derive(customer_status = ERROR_FUNCTION('')) ~> derivedColumn1"
 			]
 		}
 	}
