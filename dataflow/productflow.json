@@ -1,0 +1,103 @@
+{
+	"name": "productflow",
+	"properties": {
+		"description": "this is about the product",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_blob_product_csv",
+						"type": "DatasetReference"
+					},
+					"name": "sourceproduct",
+					"description": "this is about the source product"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_sql_dim_products",
+						"type": "DatasetReference"
+					},
+					"name": "sinkproduct",
+					"description": "Add sink dataset of product",
+					"rejectedDataLinkedService": {
+						"referenceName": "ls_retailblob",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [
+				{
+					"name": "procutadd"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          product_id as string,",
+				"          product_name as string,",
+				"          category as string,",
+				"          sub_category as string,",
+				"          supplier_id as string,",
+				"          unit_price as integer,",
+				"          cost_price as integer,",
+				"          stock_quantity as integer,",
+				"          reorder_level as string,",
+				"          weight_kg as string,",
+				"          is_active as integer,",
+				"          launch_date as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceproduct",
+				"sourceproduct derive({discountinued } = iif(is_active == 0 && stock_quantity == 0,'Yes','No')) ~> procutadd",
+				"procutadd select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          product_id as string,",
+				"          product_name as string,",
+				"          category as string,",
+				"          sub_category as string,",
+				"          supplier_id as string,",
+				"          unit_price as decimal(12,2),",
+				"          cost_price as decimal(12,2),",
+				"          stock_quantity as integer,",
+				"          reorder_level as integer,",
+				"          weight_kg as decimal(8,2),",
+				"          is_discontinued as boolean,",
+				"          launch_date as date",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     truncate:true,",
+				"     format: 'table',",
+				"     preSQLs:['TRUNCATE TABLE dim_products'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          product_id,",
+				"          product_name,",
+				"          category,",
+				"          sub_category,",
+				"          supplier_id,",
+				"          unit_price,",
+				"          cost_price,",
+				"          stock_quantity,",
+				"          reorder_level,",
+				"          weight_kg,",
+				"          is_discontinued = {discountinued },",
+				"          launch_date",
+				"     )) ~> sinkproduct"
+			]
+		}
+	}
+}
