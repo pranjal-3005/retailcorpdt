@@ -11,6 +11,9 @@
 					},
 					"name": "customers1",
 					"description": "this is about the customer dataset"
+				},
+				{
+					"name": "source1"
 				}
 			],
 			"sinks": [
@@ -51,6 +54,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> customers1",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1",
 				"customers1 filter(is_active == 1) ~> filter1",
 				"filter1 derive(customer_status = iif(loyalty_points > 1000,'Premium','Regular')) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
