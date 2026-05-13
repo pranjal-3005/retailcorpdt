@@ -13,7 +13,15 @@
 					"description": "this is about the customer dataset"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_sql_dim_customers",
+						"type": "DatasetReference"
+					},
+					"name": "csink"
+				}
+			],
 			"transformations": [
 				{
 					"name": "filter1",
@@ -38,13 +46,40 @@
 				"          registration_date as string,",
 				"          is_active as integer,",
 				"          credit_limit as string,",
-				"          loyalty_points as string",
+				"          loyalty_points as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> customers1",
 				"customers1 filter(is_active == 1) ~> filter1",
-				"filter1 derive(customer_status = ERROR_FUNCTION('')) ~> derivedColumn1"
+				"filter1 derive(customer_status = iif(loyalty_points > 1000,'Premium','Regular')) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          customer_id as string,",
+				"          first_name as string,",
+				"          last_name as string,",
+				"          email as string,",
+				"          phone as string,",
+				"          city as string,",
+				"          state as string,",
+				"          pincode as string,",
+				"          tier as string,",
+				"          segment as string,",
+				"          registration_date as date,",
+				"          credit_limit as decimal(12,2),",
+				"          loyalty_points as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     truncate:true,",
+				"     format: 'table',",
+				"     preSQLs:['TRUNCATE TABLE dim_customers'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> csink"
 			]
 		}
 	}
